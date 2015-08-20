@@ -1,10 +1,9 @@
 var Square = require("../src/square");
-
 var square;
 
 describe("Square", function() {
   beforeEach(function() {
-    square = new Square(2, "red");
+    square = new Square(2, "green");
   });
 
   describe("Area", function() {
@@ -15,9 +14,19 @@ describe("Square", function() {
 
   describe("Perimeter", function() {
     it("should be 8 for a square with side length 2", function() {
-      expect(square.area()).toEqual(8);
+      expect(square.perimeter()).toEqual(8);
     });
   });
 
-  // Write more specs!!
+  describe('toString', function() {
+    it ('should describe the square', function() {
+      expect(square.toString()).toEqual('[Square sideLengths:2, color: green]');
+    })
+  });
+
+  describe('toRGB', function() {
+    it ('should return rgb(0,255,0) for a green shape', function() {
+      expect(square.getRGB()).toEqual('rgb(0,255,0)');
+    })
+  })
 });

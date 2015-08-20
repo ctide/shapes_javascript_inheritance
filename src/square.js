@@ -1,11 +1,16 @@
-var Shape = require("./shape");
+var Rectangle = require("./rectangle");
+var Shape = require('./shape');
 
 function Square(sideLength, color) {
-  Shape.call(4, color);
-  this.sideLength = sideLength;
+  Rectangle.call(this, sideLength, sideLength, color);
 }
 
-// TODO: Implement area, perimeter, draw and toString for Square.
-// DO NOT reimplement getRGB.  That should only have to be done once.
+Square.prototype = Object.create(Rectangle.prototype);
+Square.prototype.constructor = Square;
 
+Square.prototype.type = Shape.prototype.type;
+
+Square.prototype.toString = function() {
+  return '[Square sideLengths:' + this.side1 + ', color: ' + this.color + ']';
+}
 module.exports = Square;

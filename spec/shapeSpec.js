@@ -1,9 +1,5 @@
 var Shape = require("../src/shape");
-console.log(Shape);
-
 var shape;
-shape = new Shape(1,"red");
-console.log(shape.color);
 
 describe("Shape", function() {
   beforeEach(function() {
@@ -16,5 +12,22 @@ describe("Shape", function() {
     });
   });
 
-  // Write more specs!!
+  describe('Draw', function() {
+    it ('should return a string for abstract shapes', function() {
+      expect(shape.draw()).toEqual('A shape with 1 sides');
+    });
+  })
+
+  describe('toString', function() {
+    it ('should describe the shape', function() {
+      expect(shape.toString()).toEqual('[Shape sides:1, color:red]');
+    })
+  });
+
+  describe('getRGB', function() {
+    it ('should return rgb(255,0,0) for a red shape', function() {
+      expect(shape.getRGB()).toEqual('rgb(255,0,0)');
+    })
+  })
+
 });
